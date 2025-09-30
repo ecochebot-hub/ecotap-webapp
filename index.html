@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EcoTap - Grow Your Forest</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading" class="screen active">
+            <div class="loader">
+                <div class="tree-icon">🌳</div>
+                <h2>Loading EcoTap...</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game" class="screen">
+            <!-- Header Stats -->
+            <div class="header">
+                <div class="stat">
+                    <span class="stat-icon">💰</span>
+                    <span class="stat-value" id="points">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">🌳</span>
+                    <span class="stat-value" id="trees">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">⭐</span>
+                    <span class="stat-value" id="level">1</span>
+                </div>
+            </div>
+
+            <!-- Energy Bar -->
+            <div class="energy-container">
+                <div class="energy-label">
+                    <span>⚡ Energy</span>
+                    <span id="energy-text">100/100</span>
+                </div>
+                <div class="energy-bar">
+                    <div class="energy-fill" id="energy-fill" style="width: 100%"></div>
+                </div>
+            </div>
+
+            <!-- Tap Area -->
+            <div class="tap-area">
+                <div class="tree-container" id="tree-container">
+                    <div class="tree" id="tap-tree">
+                        🌳
+                    </div>
+                    <div class="tap-effect" id="tap-effect"></div>
+                </div>
+                <div class="multiplier-badge" id="multiplier">x1.0</div>
+            </div>
+
+            <!-- Info Text -->
+            <div class="info-text">
+                <p>Tap the tree to earn points!</p>
+                <p class="subtext">1000 points = 1 tree planted 🌱</p>
+            </div>
+
+            <!-- Floating Points Animation Container -->
+            <div id="floating-points-container"></div>
+        </div>
+
+        <!-- Error Screen -->
+        <div id="error" class="screen">
+            <div class="error-content">
+                <div class="error-icon">⚠️</div>
+                <h2>Oops!</h2>
+                <p id="error-message">Something went wrong</p>
+                <button onclick="location.reload()" class="retry-btn">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
