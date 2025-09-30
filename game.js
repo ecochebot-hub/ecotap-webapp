@@ -1,59 +1,19 @@
-c
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const tg = window.Telegram.WebApp;
 tg.expand();
-//tg.enableClosingConfirmation();
 
 let gameState = {
     points: 0,
     trees: 0,
     level: 1,
-    energy: 100,
-    maxEnergy: 100,
+    energy: 500,
+    maxEnergy: 500,
     totalTaps: 0,
     multiplier: 1.0,
     lastEnergyUpdate: Date.now()
 };
 
 const CONFIG = {
-    ENERGY_REGEN_RATE: 1,
+    ENERGY_REGEN_RATE: 5,
     ENERGY_REGEN_INTERVAL: 60000,
     POINTS_PER_TREE: 1000,
     SYNC_INTERVAL: 5000,
@@ -108,8 +68,8 @@ async function loadUserData(userId) {
                 points: 0,
                 trees: 0,
                 level: 1,
-                energy: 100,
-                maxEnergy: 100,
+                energy: 500,
+                maxEnergy: 500,
                 totalTaps: 0,
                 multiplier: 1.0,
                 lastEnergyUpdate: Date.now()
@@ -130,7 +90,7 @@ function setupTapHandler() {
 
 function handleTap(e) {
     if (gameState.energy < 1) {
-        showToast('⚡ Not enough energy!');
+        showToast('Not enough energy!');
         shakeElement(elements.tree);
         return;
     }
@@ -143,7 +103,7 @@ function handleTap(e) {
     const newTrees = Math.floor(gameState.points / CONFIG.POINTS_PER_TREE);
     if (newTrees > gameState.trees) {
         gameState.trees = newTrees;
-        showToast('🌳 New tree planted!');
+        showToast('New tree planted!');
     }
     
     tapQueue++;
