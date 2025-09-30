@@ -1,6 +1,45 @@
+c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const tg = window.Telegram.WebApp;
 tg.expand();
-tg.enableClosingConfirmation();
+//tg.enableClosingConfirmation();
 
 let gameState = {
     points: 0,
